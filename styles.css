@@ -1,0 +1,88 @@
+/* 重置样式 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* 防止页面滚动 */
+}
+
+/* 全屏背景容器 */
+.full-screen-bg {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* 确保容器内的溢出内容被裁剪 */
+}
+
+.full-screen-bg::before {
+    content: '';
+    background-image: url('BG.jpg'); /* 替换为您的全屏背景图片 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: center;
+    animation: zoomIn 60s infinite;
+}
+
+/* 半透明覆盖层 */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明覆盖层，突出文字 */
+    color: #fff;
+    position: relative; /* 相对于 .full-screen-bg 定位 */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* 限制文本区域宽度 */
+.overlay h1, .overlay p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 标题和按钮样式 */
+.overlay h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    line-height: 1.5; /* 增加行高，提高可读性 */
+}
+
+.overlay .btn {
+    padding: 15px 60px;
+    background-color: white;
+    color: gray;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.overlay .btn:hover {
+    transform: scale(1.05);
+}
+
+/* 添加慢速放大动画 */
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1); /* 放大到1.1倍 */
+    }
+}
