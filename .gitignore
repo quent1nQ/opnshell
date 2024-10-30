@@ -1,0 +1,12 @@
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+*.swp
+
+# MacOS files
+.DS_Store
